@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title> meteo </title>
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=UTF-8" />
+		<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+	</head>
+	<body>
+	<div th:insert="fragments/navbar.html :: header"> </div>
+		
+		<center><h1 >la meteo dans la ville <span th:text="${response.city.name}" style="color:blue"/>  </h1></center>
+		<div th:each="rep : ${response.forecast}" style="background-color:pink">
+		<h3> date : <span th:text="${rep.datetime}" />  </h3>
+		<h3> Température minimale : <span th:text="${rep.tmin}" />  </h3>
+		<h3> Température max : <span th:text="${rep.tmax}" />  </h3>
+		<h3> Vent moyen à 10 mètres en km/h : <span th:text="${rep.wind10m}" />  </h3>
+		</div>
+			
+	
+	</body>
+</html>
